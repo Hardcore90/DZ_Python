@@ -29,16 +29,33 @@ word = input("Введите слово маленькими латинским�
 flag = False
 sumVowelsDigits = 0
 sumConsonantsDigits = 0
+sum = [0, 0, 0, 0, 0]
 for i in range(len(word)):
-    if (word[i] == 'a') or (word[i] == 'e') or (word[i] == 'i') or (word[i] == 'o') or (word[i] == 'u'):
-        flag = True
+    if(word[i] == 'a'):
         sumVowelsDigits += 1
+        sum[0] += 1
+    elif(word[i] == 'e'):
+        sumVowelsDigits += 1
+        sum[1] += 1
+    elif(word[i] == 'i'):
+        sumVowelsDigits += 1
+        sum[2] += 1
+    elif(word[i] == 'o'):
+        sumVowelsDigits += 1
+        sum[3] += 1
+    elif(word[i] == 'u'):
+        sumVowelsDigits += 1
+        sum[4] += 1
     else:
         sumConsonantsDigits += 1
-print(f"Кол-во гласных букв в слове {word} - {sumVowelsDigits}")
-print(f"Кол-во согласных букв в слове {word} - {sumConsonantsDigits}")
-if flag == False:
-    print('False')
+
+for i in range(len(sum)):
+    if (sum[i] == 0):
+        sum[i] = 'False'
+
+print(f'Количество гласных: {sumVowelsDigits}, Количество согласных: {sumConsonantsDigits}!')
+print(f'Количество "a": {sum[0]}, Количество "e": {sum[1]}, Количество "i": {sum[2]}, Количество "o": {sum[3]}, Количество "u": {sum[4]}')
+        
 
 
 
