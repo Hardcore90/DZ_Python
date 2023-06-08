@@ -24,6 +24,9 @@ while num < 1 | num > 100000:
 
 print('Введите в строку элементы(числа) списка через пробел: ')
 arr = list(map(int, input().split()))
+while len(arr) != num:
+    print("Количество введеных чисел не соответсвует заданному количеству элементов в списке(N)!Повторите ввод:")
+    arr = list(map(int, input().split()))
 def changeArr(array):
     tmp = array[-1]
     array.pop(-1)
