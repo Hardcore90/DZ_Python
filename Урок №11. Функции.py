@@ -28,7 +28,7 @@ def factorial(num):
 
 fac = factorial(num)
 lst = []
-for i in range(num,0,-1):
+for i in range(fac,0,-1):
     lst.append(factorial(i))
 print(lst) 
 
@@ -231,14 +231,14 @@ def update():
     if not pet:
         print("Питомца с таким идентификатором нет в базе!")
         return
-    key = [x for x in pet.keys()][0]
+    key2 = [x for x in pet.keys()][0]
     print("Введите данные или оставьте поле пустым. Нажмите Enter")
     temp = dict()
-    for key, value in pet[key].items():
+    for key, value in pet[key2].items():
         res = input(f"{key}: ")
         if res:
             temp[key] = int(res) if res.isnumeric() else res
-    pet[key].update(temp)
+    pet[key2].update(temp)
 
 def delete():
     ID = int(input("Введите идентификатор питомца, информацию о котором вы хотите удалить: "))
