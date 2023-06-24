@@ -73,18 +73,23 @@ class Turtle(object):
 
     def go_up(self):
         self.positionY += self.step
+        return self.positionY
     
     def go_down(self):
         self.positionY -= self.step
+        return self.positionY
     
     def go_left(self):
         self.positionX -= self.step
+        return self.positionX
     
     def go_right(self):
         self.positionX += self.step
+        return self.positionX
     
     def evolve(self):
         self.step += 1
+        return self.step
     
     def degrade(self):
         if self.step <= 0:
@@ -94,24 +99,38 @@ class Turtle(object):
 
     def count_moves(self, x2, y2):
         count = 0
-        while self.positionX != x2:
+        while self.positionX < x2:
             if self.positionX > x2:
                 self.go_left()
                 count += 1
+                if self.positionX < x2:
+                    break
             elif self.positionX < x2:
                 self.go_right()
                 count += 1
+                if self.positionX > x2:
+                    break
         while self.positionY != y2:   
             if self.positionY > y2:
                 self.go_down()
                 count += 1
+                if self.positionY < y2:
+                    break
             elif self.positionY < y2:
                 self.go_up()
                 count += 1
-        print(f"Минимальное количество действий, за которое черепашка сможет добраться до ({x2} {y2}) от текущей позиции - {count}")
+                if self.positionY > y2:
+                    break
+        if self.positionX != x2:
+            print("Невозможно добраться до заданных координат!")
+        elif self.positionY != y2:
+            print("Невозможно добраться до заданных координат!")
+        else:
+            print(f"Минимальное количество действий, за которое черепашка сможет добраться до ({x2} {y2}) от текущей позиции - {count}")
+        
 
 turtle = Turtle(0, 0, 1)
 turtle.count_moves(10, 10)
 turtle2 = Turtle(0, 0, 1)
 turtle2.evolve()
-turtle2.count_moves(10, 10)
+turtle2.count_moves(6, 6)
